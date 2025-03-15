@@ -1,0 +1,122 @@
+# Blender 4.3.2 MTL File: 'CabanaPintada4.blend'
+# www.blender.org
+
+newmtl Material.001
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/paredesCaba.png
+
+newmtl Material.002
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl Material.003
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/puertaMadera.png
+
+newmtl Material.004
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/laton.jpg
+
+newmtl Material.005
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/madera.png
+
+newmtl Material.006
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/troncos.jpg
+
+newmtl Material.007
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/pasto.png
+
+newmtl Material.008
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/tejas.png

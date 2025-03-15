@@ -1,0 +1,257 @@
+# Blender 4.3.2 MTL File: 'cabanaPintada.blend'
+# www.blender.org
+
+newmtl hacha2
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/hoz.png
+
+newmtl hoz1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/hoz.png
+
+newmtl muroCentral
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl muroDerecho
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl muroIzquierdo
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl muroIzquierdo.001
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl paso1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/pasto.png
+
+newmtl picaporte
+Kd 0.800243 0.758335 0.023109
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+
+newmtl piso1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/piso.jpg
+
+newmtl puertaSuperior
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/puerta.jpg
+
+newmtl techo1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/techo.jpg
+
+newmtl troncosMeidos
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/troncos.jpg
+
+newmtl troncosSuperiores
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/troncos.jpg
+
+newmtl viga1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/vigas.jpg
+
+newmtl viga2
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/vigas.jpg
+
+newmtl vigaPiso
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/vigas.jpg
+
+newmtl vigaTecho1
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+Pr 0.500000
+Pm 0.000000
+Ps 0.000000
+Pc 0.000000
+Pcr 0.030000
+aniso 0.000000
+anisor 0.000000
+map_Kd texturasCabana/vigas.jpg

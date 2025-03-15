@@ -1,3 +1,7 @@
+//Elizalde Pérez Alan
+//Práctica 6
+//319278949
+//14/03/25
 // Std. Includes
 #include <string>
 
@@ -54,7 +58,7 @@ int main( )
     glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
     
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Carga de modelos y camara sintetica", nullptr, nullptr );
+    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Elizalde Perez Alan Practica 6", nullptr, nullptr );
     
     if ( nullptr == window )
     {
@@ -94,9 +98,18 @@ int main( )
     Shader shader( "Shader/modelLoading.vs", "Shader/modelLoading.frag" );
     
     // Load models
-    glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
+
+    Model cabana((char*)"Models/ModelosOBJ/CabanaPintada/cabanaPintada4.obj");
+    Model bosque((char*)"Models/ModelosOBJ/hachaMadera/bosque.obj");
+    Model hacha((char*)"Models/ModelosOBJ/hachaMadera/hachaYtocon2.obj");
+    Model arboles((char*)"Models/ModelosOBJ/hachaMadera/arbolesSecos.obj");
+    Model perro((char*)"Models/RedDog.obj");
+    Model finn((char*)"Models/ModelosOBJ/modelo3DFinn/finnModel.obj");
+
+    glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
+
     
-  
+
 
     // Game loop
     while (!glfwWindowShouldClose(window))
@@ -121,9 +134,35 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
-        glm::mat4 model(1);
+
+        glm::mat4 model = glm::mat4(1.0f);
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cabana.Draw(shader);
         
+        
+        model = glm::translate(model, glm::vec3(1.5f, -3.0f, 20.0f));
+        model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        bosque.Draw(shader);
+        
+        model = glm::translate(model, glm::vec3(-8.0f, 0.58f, -4.0f));
+
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        hacha.Draw(shader);
+        
+        model = glm::translate(model, glm::vec3(-4.0f, -0.10f, 3.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        arboles.Draw(shader);
+        model = glm::translate(model, glm::vec3(5.0f, 0.5f, -1.0f));
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        perro.Draw(shader);
+        model = glm::translate(model, glm::vec3(-0.7f, 0.0f, -3.0f));
+        model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        finn.Draw(shader);
+
 
         // Swap the buffers
         glfwSwapBuffers( window );
