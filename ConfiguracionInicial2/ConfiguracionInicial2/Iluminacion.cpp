@@ -43,9 +43,11 @@ bool firstMouse = true;
 
 
 // Light attributes
-glm::vec3 lightPos(0.5f, 0.5f, 2.5f);
+glm::vec3 lightPos(-8.0f, 0.0f, -3.5f);
+
 float movelightPos = 0.0f;
-glm::vec3 lightPos2(0.0f, 1.0f, -3.0f);
+
+glm::vec3 lightPos2(8.0f, 1.0f, -4.0f);
 float movelightPos2 = 0.0f;
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
@@ -108,8 +110,21 @@ int main()
 
 
     // Load models
-    Model red_dog((char*)"Models/RedDog.obj");
+    //Model red_dog((char*)"Models/RedDog.obj");
+    //Model hacha((char*)"Models/ModelosOBJ/hachaMadera/hachaYtocon2.obj");
+
+    //Carga de escenario
+    Model cabana((char*)"Models/ModelosOBJ/CabanaPintada/cabanaPintada4.obj");
+    Model bosque((char*)"Models/ModelosOBJ/hachaMadera/bosque.obj");
     Model hacha((char*)"Models/ModelosOBJ/hachaMadera/hachaYtocon2.obj");
+    Model arboles((char*)"Models/ModelosOBJ/hachaMadera/arbolesSecos.obj");
+    Model perro((char*)"Models/RedDog.obj");
+    Model perro((char*)"Models/Sol.obj");
+    Model perro((char*)"Models/Luna.obj");
+    Model finn((char*)"Models/ModelosOBJ/modelo3DFinn/finnModel.obj");
+
+
+
     //Model chair((char*)"Models/chair.obj");
 
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
@@ -222,8 +237,26 @@ int main()
         GLint viewPosLoc = glGetUniformLocation(lightingShader.Program, "viewPos");
         glUniform3f(viewPosLoc, camera.GetPosition().x, camera.GetPosition().y, camera.GetPosition().z);
 
-        glm::vec3 light1Pos = lightPos + movelightPos;
-        glm::vec3 light2Pos = lightPos2 + movelightPos2;
+        //glm::vec3 light1Pos = lightPos + movelightPos;
+        //glm::vec3 light1Pos = glm::vec3(lightPos.x + movelightPos, lightPos.y + movelightPos, lightPos.z);
+        
+        float angleInRadians = glm::radians(movelightPos);
+        float radius = -7.0f;
+        glm::vec3 light1Pos;
+        light1Pos.x = radius * std::cos(-angleInRadians);
+        light1Pos.y = radius * std::sin(-angleInRadians);
+        light1Pos.z = -3.50f;
+
+        //glm::vec3 light2Pos = lightPos2 + movelightPos2;
+
+        float angleInRadians2 = glm::radians(movelightPos2);
+        float radius2 = 7.0f;
+        glm::vec3 light2Pos;
+        light2Pos.x = radius2 * std::cos(angleInRadians2);
+        light2Pos.y = radius2 * std::sin(angleInRadians2);
+        light2Pos.z = -3.50f;
+
+
         
         int nLuces = 2;  // Número de luces 
         if (nLuces > 10) {
@@ -256,18 +289,52 @@ int main()
         // Draw the loaded model
         
         glm::mat4 model(1);
+        glm::mat4 modelTemp = glm::mat4(1.0f);
         //Perro
+        //model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //glBindVertexArray(VAO);
+        //red_dog.Draw(lightingShader);
+        //// hacha
+        //model = glm::translate(model, glm::vec3(-6.0f, -1.50f, -5.0f));
+        //model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //glBindVertexArray(VAO);
+        //hacha.Draw(lightingShader);
+        //
+        
+        /////////////////////////////////////////Escenario
+        
+
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        cabana.Draw(lightingShader);
+        model = glm::translate(model, glm::vec3(1.5f, -3.0f, 20.0f));
         model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
-        red_dog.Draw(lightingShader);
-        // hacha
-        model = glm::translate(model, glm::vec3(-6.0f, -1.50f, -5.0f));
-        model = glm::scale(model, glm::vec3(4.0f, 4.0f, 4.0f));
+        bosque.Draw(lightingShader);
+        model = glm::translate(model, glm::vec3(-8.0f, 0.58f, -4.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         hacha.Draw(lightingShader);
+        model = glm::translate(model, glm::vec3(-4.0f, -0.10f, 3.0f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+        arboles.Draw(lightingShader);
         //
+        modelTemp = model = glm::translate(model, glm::vec3(5.0f, 0.5f, -1.0f));
+        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+        perro.Draw(lightingShader);
+        //
+        model = glm::translate(model, glm::vec3(-0.7f, 0.0f, -3.0f));
+        model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
+        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+        finn.Draw(lightingShader);
+        //
+
         glBindVertexArray(0);
 
         lampshader.Use();
@@ -275,14 +342,16 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
         
         model = glm::mat4(1.0f);
-        model = glm::translate(model, light1Pos);
+        model = glm::translate(modelTemp, light1Pos);
+        model = glm::rotate(model, glm::radians(movelightPos), glm::vec3(3.0f, 1.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
 
         model = glm::mat4(1.0f);
-        model = glm::translate(model, light2Pos);
+        model = glm::translate(modelTemp, light2Pos);
+        model = glm::rotate(model, glm::radians(movelightPos2), glm::vec3(3.0f, 1.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glDrawArrays(GL_TRIANGLES, 0, 36);
@@ -353,29 +422,17 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
         }
     }
 
-    if (keys[GLFW_KEY_O])
-    {
-       
-        movelightPos += 0.1f;
-    }
+    float angSpeed = 1.0f;
 
-    if (keys[GLFW_KEY_L])
-    {
-        
-        movelightPos -= 0.1f;
-    }
+    if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+        movelightPos = glm::clamp(movelightPos + angSpeed, 0.0f, 200.0f);
+    if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+        movelightPos = glm::clamp(movelightPos - angSpeed, 0.0f, 200.0f);
 
-    if (keys[GLFW_KEY_I])
-    {
-
-        movelightPos2 += 0.1f;
-    }
-
-    if (keys[GLFW_KEY_K])
-    {
-
-        movelightPos2 -= 0.1f;
-    }
+    if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+        movelightPos2 = glm::clamp(movelightPos2 + angSpeed, -20.0f, 200.0f);
+    if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+        movelightPos2 = glm::clamp(movelightPos2 - angSpeed, -20.0f, 200.0f);
 
 }
 
