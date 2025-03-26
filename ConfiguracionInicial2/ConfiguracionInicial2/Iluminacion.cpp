@@ -1,7 +1,7 @@
 //Práctica 8
 //Elizalde Pérez Alan
 //319278949
-//23/03/2025
+//28/03/2025
 
 // Std. Includes
 #include <string>
@@ -66,7 +66,7 @@ int main()
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Materiales e Iluminacion Elizalde Perez Alan", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Practica 8 Elizalde Perez Alan", nullptr, nullptr);
 
     if (nullptr == window)
     {
@@ -119,13 +119,11 @@ int main()
     Model hacha((char*)"Models/ModelosOBJ/hachaMadera/hachaYtocon2.obj");
     Model arboles((char*)"Models/ModelosOBJ/hachaMadera/arbolesSecos.obj");
     Model perro((char*)"Models/RedDog.obj");
-    Model perro((char*)"Models/Sol.obj");
-    Model perro((char*)"Models/Luna.obj");
+    Model sol((char*)"Models/Sol.obj");
+    Model luna((char*)"Models/Luna.obj");
     Model finn((char*)"Models/ModelosOBJ/modelo3DFinn/finnModel.obj");
 
 
-
-    //Model chair((char*)"Models/chair.obj");
 
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
 
@@ -308,36 +306,42 @@ int main()
 
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         cabana.Draw(lightingShader);
+
         model = glm::translate(model, glm::vec3(1.5f, -3.0f, 20.0f));
         model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         bosque.Draw(lightingShader);
+
         model = glm::translate(model, glm::vec3(-8.0f, 0.58f, -4.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         hacha.Draw(lightingShader);
+
         model = glm::translate(model, glm::vec3(-4.0f, -0.10f, 3.0f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         arboles.Draw(lightingShader);
+
         //
         modelTemp = model = glm::translate(model, glm::vec3(5.0f, 0.5f, -1.0f));
         model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         perro.Draw(lightingShader);
+
         //
         model = glm::translate(model, glm::vec3(-0.7f, 0.0f, -3.0f));
         model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
         finn.Draw(lightingShader);
-        //
+
+        ///////////////////////////////
 
         glBindVertexArray(0);
 
-        lampshader.Use();
+        /*lampshader.Use();
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
         
@@ -354,7 +358,34 @@ int main()
         model = glm::rotate(model, glm::radians(movelightPos2), glm::vec3(3.0f, 1.0f, 0.0f));
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        glDrawArrays(GL_TRIANGLES, 0, 36);*/
+
+        //lampshader.Use();
+        //glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+        //glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(modelTemp, light1Pos);
+        model = glm::scale(model, glm::vec3(0.5f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+
+        sol.Draw(shader);
+
+
+        model = glm::mat4(1.0f);
+        model = glm::translate(modelTemp, light2Pos);
+        model = glm::scale(model, glm::vec3(0.5f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(VAO);
+
+        luna.Draw(shader);
+       
+
+        lampshader.Use();
+        glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
+        glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
+
 
         glBindVertexArray(0);
 
