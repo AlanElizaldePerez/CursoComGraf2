@@ -24,16 +24,16 @@
     <None Include="Shader\modelLoading.vs">
       <Filter>Archivos de origen\Shader</Filter>
     </None>
-    <None Include="Shader\lamp.frag">
+    <None Include="Shader\lamp9.frag">
       <Filter>Archivos de origen\Shader</Filter>
     </None>
-    <None Include="Shader\lamp.vs">
+    <None Include="Shader\lamp9.vs">
       <Filter>Archivos de origen\Shader</Filter>
     </None>
-    <None Include="Shader\lighting.frag">
+    <None Include="Shader\lighting9.frag">
       <Filter>Archivos de origen\Shader</Filter>
     </None>
-    <None Include="Shader\lighting.vs">
+    <None Include="Shader\lighting9.vs">
       <Filter>Archivos de origen\Shader</Filter>
     </None>
   </ItemGroup>
@@ -46,7 +46,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Iluminacion.cpp">
+    <ClCompile Include="fuentesDeLuz.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
