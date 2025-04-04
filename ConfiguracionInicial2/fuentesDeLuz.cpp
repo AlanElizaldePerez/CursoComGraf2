@@ -246,7 +246,7 @@ int main()
 
 		glm::vec3 light1Pos = lightPosSol + movelightPos;
 		anguloSol = glm::radians(angSol);
-		float radio = 8.0f;
+		float radio = 10.0f;
 		light1Pos.x = lightPosSol.x + radio * std::cos(anguloSol);
 		light1Pos.y = lightPosSol.y + radio * std::sin(anguloSol);
 		light1Pos.z = 0.0f;
@@ -371,20 +371,24 @@ int main()
 
 
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		cabana.Draw(lightingShader);
 
 		model = glm::translate(model, glm::vec3(1.5f, -3.0f, 20.0f));
 		model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO);
 		bosque.Draw(lightingShader);
 
 		model = glm::translate(model, glm::vec3(-8.0f, 0.58f, -4.0f));
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO);
 		hacha.Draw(lightingShader);
 
 		model = glm::translate(model, glm::vec3(-4.0f, -0.10f, 3.0f));
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO);
 		arboles.Draw(lightingShader);
@@ -392,6 +396,7 @@ int main()
 		//
 		modelTemp = model = glm::translate(model, glm::vec3(5.0f, 0.5f, -1.0f));
 		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		glBindVertexArray(VAO);
 		perro.Draw(lightingShader);
@@ -410,14 +415,21 @@ int main()
 		// Also draw the lamp object, again binding the appropriate shader
 		glBindVertexArray(0);
 
-		//model = glm::mat4(1);
-		//model = glm::translate(modelTemp, pointLightPositions[1]);
-		//model = glm::scale(model, glm::vec3(1.5f));
-		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		//glBindVertexArray(VAO);
+		model = glm::mat4(1);
+		model = glm::translate(model, light1Pos);
+		model = glm::scale(model, glm::vec3(1.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO);
 
-		//sol.Draw(shader);
+		sol.Draw(lightingShader);
 
+		model = glm::mat4(1);
+		model = glm::translate(model, light2Pos);
+		model = glm::scale(model, glm::vec3(1.5f));
+		glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		glBindVertexArray(VAO);
+
+		luna.Draw(lightingShader);
 
 			lampShader.Use();
 			// Get location objects for the matrices on the lamp shader (these could be different on a different shader)
@@ -450,25 +462,20 @@ int main()
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		model = glm::mat4(1);
-		model = glm::translate(model, pointLightPositions[1]);
-		model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
-
-		
+		//model = glm::mat4(1);
+		//model = glm::translate(model, pointLightPositions[1]);
+		//model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//glBindVertexArray(VAO);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
 
 
-
-
-
-		model = glm::mat4(1);
-		model = glm::translate(model, pointLightPositions[2]);
-		model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 36);
+		//model = glm::mat4(1);
+		//model = glm::translate(model, pointLightPositions[2]);
+		//model = glm::scale(model, glm::vec3(0.2f)); // Make it a smaller cube
+		//glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		//glBindVertexArray(VAO);
+		//glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		model = glm::mat4(1);
 		model = glm::translate(model, pointLightPositions[3]);
@@ -602,6 +609,20 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		}
 
 	}
+
+	if (keys[GLFW_KEY_L])
+	{
+		if (day) {
+			angSol -= 2.0f; // Disminuye el angulo
+			if (angSol < 0.0f) angSol = 0.0f; // Limite inferior
+		}
+		else {
+			angLuna -= 2.0f; // Disminuye el angulo
+			if (angLuna < 0.0f) angLuna = 0.0f; // Limite inferior
+		}
+	}
+
+
 	if (keys[GLFW_KEY_TAB])
 	{
 		if (day) {
