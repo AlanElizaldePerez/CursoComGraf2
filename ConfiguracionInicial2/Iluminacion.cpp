@@ -1,5 +1,5 @@
-//Práctica 8
-//Elizalde Pérez Alan
+//Prï¿½ctica 8
+//Elizalde Pï¿½rez Alan
 //319278949
 //28/03/2025
 
@@ -256,7 +256,7 @@ int main()
 
 
         
-        int nLuces = 2;  // Número de luces 
+        int nLuces = 2;  // Nï¿½mero de luces 
         if (nLuces > 10) {
             nLuces = 10;
         }
@@ -273,7 +273,7 @@ int main()
         glUniform3f(glGetUniformLocation(lightingShader.Program, "light[1].diffuse"), 1.0f, 1.0f, 1.0f);
         glUniform3f(glGetUniformLocation(lightingShader.Program, "light[1].specular"), 1.0f, 1.0f, 1.0f);
 
-        // Matrices de vista y proyección
+        // Matrices de vista y proyecciï¿½n
         glm::mat4 view = camera.GetViewMatrix();
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
