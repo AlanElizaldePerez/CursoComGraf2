@@ -139,19 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Shader\lamp9.frag" />
-    <None Include="Shader\lamp9.vs" />
-    <None Include="Shader\lighting9.frag" />
-    <None Include="Shader\lighting9.vs" />
-    <None Include="Shader\modelLoading.frag" />
-    <None Include="Shader\modelLoading.vs" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fuentesDeLuz.cpp" />
+    <None Include="Shader\lamp10.frag" />
+    <None Include="Shader\lamp10.vs" />
+    <None Include="Shader\lighting10.frag" />
+    <None Include="Shader\lighting10.vs" />
+    <None Include="Shader\modelLoading10.frag" />
+    <None Include="Shader\modelLoading10.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animación_Básica.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
