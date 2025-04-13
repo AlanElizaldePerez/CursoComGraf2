@@ -151,7 +151,7 @@
     <None Include="Shader\modelLoading10.vs" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Animación_Básica.cpp" />
+    <ClCompile Include="Maquina de estados.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
